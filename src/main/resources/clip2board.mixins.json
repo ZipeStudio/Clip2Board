@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "package": "me.zipestudio.clip2board.mixin",
+    "refmap": "${mod_id}.refmap.json",
+    "compatibilityLevel": "JAVA_${java}",
+    "mixins": [
+    ],
+    "client": [
+        "ScreenshotRecorderMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

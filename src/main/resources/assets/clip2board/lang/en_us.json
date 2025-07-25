@@ -1,0 +1,20 @@
+{
+	"modmenu.descriptionTranslation.${mod_id}": "${mod_description}",
+
+	"${mod_id}.modmenu.title": "§l${mod_name} Configuration",
+	"${mod_id}.modmenu.no_config_library_screen.message": "You need to install §6§lYet Another Config Lib [YACL]§f to open ${mod_name} Configuration Screen\n\n§a§lOpen §6§lYACL §a§lModrinth page?",
+
+	"${mod_id}.modmenu.category.general.name": "§lGeneral",
+
+	"${mod_id}.modmenu.option.enableMod.name": "Enable Mod",
+	"${mod_id}.modmenu.option.enableMod.description": "If enabled, new screenshots will be copied to the clipboard;\nif disabled, won't.",
+
+	"${mod_id}.modmenu.option.saveToFolder.name": "Save Screenshot",
+	"${mod_id}.modmenu.option.saveToFolder.description": "Save screenshot to the screenshots folder.",
+
+	"screenshot.success+clipboard": "(also copied to clipboard)",
+	"screenshot.clipboard": "Copied screenshot to clipboard as %s",
+
+	"${mod_id}.modmenu.formatter.enabled_or_disabled.true": "Enabled",
+	"${mod_id}.modmenu.formatter.enabled_or_disabled.false": "Disabled"
+}

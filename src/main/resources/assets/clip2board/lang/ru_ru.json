@@ -1,0 +1,20 @@
+{
+	"modmenu.descriptionTranslation.${mod_id}": "Клиентский мод, который копирует скриншоты в буфер обмена. По желанию сохраняет их в папку (как раньше).",
+
+	"${mod_id}.modmenu.title": "§l Конфигурация ${mod_name}",
+	"${mod_id}.modmenu.no_config_library_screen.message": "Вам необходимо установить §6§lYet Another Config Lib [YACL]§f, чтобы открыть экран конфигурации ${mod_name} \n\n§a§lОткрыть страницу §6§lYACL §a§lна Modrinth?",
+
+	"${mod_id}.modmenu.category.general.name": "§lОсновное",
+
+	"${mod_id}.modmenu.option.enableMod.name": "Включить мод",
+	"${mod_id}.modmenu.option.enableMod.description": "Если включено, новые скриншоты будут копироваться в буфер обмена;\nесли выключено, не будете.",
+
+	"${mod_id}.modmenu.option.saveToFolder.name": "Сохранить скриншот",
+	"${mod_id}.modmenu.option.saveToFolder.description": "Сохранение в папку скриншотов.",
+
+	"screenshot.success+clipboard": "(так же скопирован в буфер обмена)",
+	"screenshot.clipboard": "Снимок экрана скопирован в буфер обмена как %s",
+
+	"${mod_id}.modmenu.formatter.enabled_or_disabled.true": "Включено",
+	"${mod_id}.modmenu.formatter.enabled_or_disabled.false": "Отключено"
+}

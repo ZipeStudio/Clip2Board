@@ -24,7 +24,11 @@ public class ClipboardUtils {
         BufferedImage image = new BufferedImage(nativeImage.getWidth(), nativeImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
         for (int y = 0; y < nativeImage.getHeight(); y++) {
             for (int x = 0; x < nativeImage.getWidth(); x++) {
+                //? if >=1.21.2 {
                 image.setRGB(x, y, nativeImage.getColorArgb(x, y));
+                //?} else {
+                /*image.setRGB(x, y, nativeImage.getColor(x, y));
+                *///?}
             }
         }
         return image;

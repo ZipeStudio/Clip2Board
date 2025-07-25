@@ -10,9 +10,9 @@ public class Clip2BoardClient implements ClientModInitializer {
 
 	public static Logger LOGGER = LoggerFactory.getLogger(Clip2Board.MOD_NAME + "/Client");
 
-	static {
-		System.setProperty("java.awt.headless", "false");
-	}
+//	static {
+//		System.setProperty("java.awt.headless", "false");
+//	}
 
 	@Override
 	public void onInitializeClient() {

@@ -24,7 +24,7 @@ import java.util.function.Consumer;
 public class ScreenshotRecorderMixin {
 
     //? if >=1.21.6 {
-    @Inject(method = "saveScreenshot(Ljava/io/File;Ljava/lang/String;Lnet/minecraft/client/gl/Framebuffer;ILjava/util/function/Consumer;)V", at = @At("HEAD"), cancellable = true)
+    /*@Inject(method = "saveScreenshot(Ljava/io/File;Ljava/lang/String;Lnet/minecraft/client/gl/Framebuffer;ILjava/util/function/Consumer;)V", at = @At("HEAD"), cancellable = true)
     private static void injectScreenshotLogic(File gameDir, @Nullable String fileName, Framebuffer framebuffer, int downscale, Consumer<Text> msgReceiver, CallbackInfo ci) {
         LeafyConfig config = LeafyConfig.getInstance();
 
@@ -65,15 +65,57 @@ public class ScreenshotRecorderMixin {
 
         ci.cancel();
     }
-    //?} else {
-    /*@Inject(
+    *///?} else if =1.21.5 {
+    /*@Inject(method = "saveScreenshot(Ljava/io/File;Ljava/lang/String;Lnet/minecraft/client/gl/Framebuffer;Ljava/util/function/Consumer;)V", at = @At("HEAD"), cancellable = true)
+    private static void injectScreenshotLogic(File gameDirectory, String fileName, Framebuffer framebuffer, Consumer<Text> messageReceiver, CallbackInfo ci) {
+        LeafyConfig config = LeafyConfig.getInstance();
+
+        if (!config.isEnableMod()) return;
+
+        ScreenshotRecorder.takeScreenshot(framebuffer, image -> {
+            File screenshotsDir = new File(gameDirectory, "screenshots");
+            screenshotsDir.mkdir();
+            File file = fileName == null ? ClipboardUtils.getScreenshotFilename(screenshotsDir) : new File(screenshotsDir, fileName);
+
+            Util.getIoWorkerExecutor().execute(() -> {
+                try {
+                    ClipboardUtils.copyImageToClipboard(image);
+
+                    if (config.isSaveToFolder()) {
+                        image.writeTo(file);
+
+                        Text fileText = Text.literal(file.getName())
+                                .formatted(Formatting.UNDERLINE)
+                                .styled(style -> style.withClickEvent(new ClickEvent.OpenFile(file.getAbsolutePath())));
+
+                        messageReceiver.accept(Text.translatable("screenshot.success", fileText)
+                                .append(" ")
+                                .append(Text.translatable("screenshot.success+clipboard").formatted(Formatting.GRAY)));
+                    } else {
+                        Text fileText = Text.literal(file.getName()).formatted(Formatting.UNDERLINE);
+                        messageReceiver.accept(Text.translatable("screenshot.clipboard", fileText));
+                    }
+
+                } catch (Exception e) {
+                    Clip2Board.LOGGER.warn("Couldn't save clipboard screenshot", e);
+                    messageReceiver.accept(Text.translatable("screenshot.failure", e.getMessage()));
+                } finally {
+                    image.close();
+                }
+            });
+        });
+
+        ci.cancel();
+    }
+    *///?} else {
+    @Inject(
             method = "saveScreenshotInner",
             at = @At("HEAD"),
             cancellable = true
     )
     private static void onSaveScreenshotInner(File gameDirectory, @Nullable String fileName, Framebuffer framebuffer, Consumer<Text> messageReceiver, CallbackInfo ci) {
 
-        MossyConfig config = MossyConfig.getInstance();
+        LeafyConfig config = LeafyConfig.getInstance();
 
         if (!config.isEnableMod()) return;
 
@@ -120,6 +162,6 @@ public class ScreenshotRecorderMixin {
 
         ci.cancel();
     }
-    *///?}
+    //?}
 
 }

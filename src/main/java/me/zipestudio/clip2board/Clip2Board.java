@@ -10,7 +10,7 @@ public class Clip2Board implements ModInitializer {
 
 	public static final String MOD_NAME = /*$ mod_name*/ "Clip2Board";
 	public static final String MOD_ID = /*$ mod_id*/ "clip2board";
-	public static final String YACL_DEPEND_VERSION = /*$ yacl*/ "3.7.1+1.21.6-fabric";
+	public static final String YACL_DEPEND_VERSION = /*$ yacl*/ "3.2.2+1.20-fabric";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
 	public static Identifier id(String path) {

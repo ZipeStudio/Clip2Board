@@ -24,7 +24,7 @@ import java.util.function.Consumer;
 public class ScreenshotRecorderMixin {
 
     //? if >=1.21.6 {
-    /*@Inject(method = "saveScreenshot(Ljava/io/File;Ljava/lang/String;Lnet/minecraft/client/gl/Framebuffer;ILjava/util/function/Consumer;)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "saveScreenshot(Ljava/io/File;Ljava/lang/String;Lnet/minecraft/client/gl/Framebuffer;ILjava/util/function/Consumer;)V", at = @At("HEAD"), cancellable = true)
     private static void injectScreenshotLogic(File gameDir, @Nullable String fileName, Framebuffer framebuffer, int downscale, Consumer<Text> msgReceiver, CallbackInfo ci) {
         LeafyConfig config = LeafyConfig.getInstance();
 
@@ -65,7 +65,7 @@ public class ScreenshotRecorderMixin {
 
         ci.cancel();
     }
-    *///?} else if =1.21.5 {
+    //?} else if =1.21.5 {
     /*@Inject(method = "saveScreenshot(Ljava/io/File;Ljava/lang/String;Lnet/minecraft/client/gl/Framebuffer;Ljava/util/function/Consumer;)V", at = @At("HEAD"), cancellable = true)
     private static void injectScreenshotLogic(File gameDirectory, String fileName, Framebuffer framebuffer, Consumer<Text> messageReceiver, CallbackInfo ci) {
         LeafyConfig config = LeafyConfig.getInstance();
@@ -108,7 +108,7 @@ public class ScreenshotRecorderMixin {
         ci.cancel();
     }
     *///?} else {
-    @Inject(
+    /*@Inject(
             method = "saveScreenshotInner",
             at = @At("HEAD"),
             cancellable = true
@@ -162,6 +162,6 @@ public class ScreenshotRecorderMixin {
 
         ci.cancel();
     }
-    //?}
+    *///?}
 
 }

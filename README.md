@@ -38,10 +38,12 @@
 
 > **Client-side mod that copies screenshots to the clipboard. Optionally saves them to the folder (like before).**
 
+## 🔹 Copy to clipboard only.
 <div align="center">
   <img src="https://raw.githubusercontent.com/ZipeStudio/Clip2Board/refs/heads/master/img/copy_without_saving.png" width="1000px" alt="mod showcase"/>
 </div>
 
+## 🔹 Save to screenshots folder with copy to clipboard.
 <div align="center">
   <img src="https://raw.githubusercontent.com/ZipeStudio/Clip2Board/refs/heads/master/img/copy_with_saving.png" width="1000px" alt="mod showcase"/>
 </div>
